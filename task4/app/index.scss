@@ -1,0 +1,147 @@
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    position: relative;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+
+body {
+    position: relative;
+    display: block;
+    background-color: white;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+input {
+    outline: none;
+    border: none;
+    font-family: Roboto, sans-serif;
+}
+
+.header {
+    padding: 30px 0;
+    text-align: center;
+
+    &__title {
+        font-size: 36px;
+
+        @media (max-width: 600px) {
+            font-size: 26px;
+        }
+    }
+}
+.slider {
+	position: relative;
+	margin: 0 auto;
+	max-width: 1120px;
+
+    &__list {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__item {
+        position: relative;
+        display: none;
+        width: calc(100% - 120px);
+
+        @media (max-width: 600px) {
+            width: 100%;
+        }
+
+        &.active {
+            display: block;
+            animation: fade 1.5s linear;
+        }
+    }
+
+    &__item-img {
+        max-width: 100%;
+        vertical-align: middle;
+    }
+
+    &__item-text {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 10px;
+        font-size: 18px;
+        color: white;
+        background-color: rgba(0, 0, 0, .7);
+
+        @media (max-width: 600px) {
+            font-size: 14px;
+        }
+
+        @media (max-width: 400px) {
+            font-size: 12px;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        top: calc(50% - 25px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        color: white;
+        background-color: rgba(0, 0, 0, .6);
+        cursor: pointer;
+        transition: all linear .3s;
+
+        @media (max-width: 600px) {
+            top: calc(100% + 40px);
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, .9);
+        }
+
+        &_prev {
+            left: 0;
+
+            @media (max-width: 600px) {
+                left: 10px;
+            }
+        }
+
+        &_next {
+            right: 0;
+
+            @media (max-width: 600px) {
+                right: 10px;
+            }
+        }
+    }
+}
+
+@keyframes fade {
+	from {
+		opacity: .5;
+	}
+	to {
+		opacity: 1;
+	}
+}
