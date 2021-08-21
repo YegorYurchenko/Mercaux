@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="cleartype" content="on">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="<%= 'assets/images/favicon-mercaux.ico' %>" type="image/x-icon">
+    <title>Task 8</title>
+    <script>
+        function initMap() {
+            const coords = { lat: 55.76444961470328, lng: 37.56834145267372 };
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 16,
+                center: coords
+            });
+
+            const marker = new google.maps.Marker({
+                position: coords,
+                map: map,
+                title: "Москва, Столярный Переулок 3к13",
+                animation: google.maps.Animation.BOUNCE
+            });
+
+            const info = new google.maps.InfoWindow({
+                content: "<h3>Москва, Столярный Переулок 3к13</h3>"
+            });
+
+            // Откроем попап при нажатии на marker
+            marker.addListener("click", () => {
+                info.open(map, marker);
+            });
+            
+            // Через ~2 секунды останавливаем прыгающий marker
+            setTimeout(() => {
+                marker.setAnimation(null);
+            }, 2180);
+        }
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="header__title">Задание №8</h1>
+    </header>
+    <main class="main">
+        <div class="map" id="map"></div>
+    </main>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACYwHb3r9TGSgdeAvqfmM9MH64j3V-QiY&callback=initMap" async defer></script>
+</body>
+
+</html>
