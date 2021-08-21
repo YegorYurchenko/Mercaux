@@ -1,0 +1,147 @@
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    position: relative;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+
+body {
+    position: relative;
+    display: block;
+    background-color: white;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+input {
+    outline: none;
+    border: none;
+    font-family: Roboto, sans-serif;
+}
+
+.header {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 50px;
+    padding: 0 50px; 
+    border-bottom: 1px solid #E0E7E8;
+    color: black;
+    background-color: white;
+
+    @media (max-width: 1000px) {
+        padding: 0 20px;
+    }
+
+    @media (max-width: 480px) {
+        justify-content: center;
+    }
+
+    &__logo-wrap {
+        display: inline-block;
+        height: 100%;
+        padding: 5px 10px;
+
+        @media (max-width: 480px) {
+            display: none;
+        }
+    }
+
+    &__logo {
+        max-width: 100%;
+        height: 100%;
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        margin: 0 200px 0 0;
+        height: 100%;
+
+        @media (max-width: 1000px) {
+            margin: 0 10px 0 0;
+        }
+    }
+
+    &__nav-list {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin: 0 40px 0 0;
+        height: 100%;
+        font-size: 20px;
+        color: black;
+        cursor: pointer;
+        transition: color 0.15s ease-in-out;
+
+        &:hover {
+            color: #45d3c2;
+        }
+
+        &:last-child {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            font-size: 16px;
+        }
+    }
+
+    &__nav-item-title {
+        color: inherit;
+    }
+}
+
+.main {
+    margin: 50px 0 0;
+}
+
+.first-section, .second-section, .third-section, .fourth-section {
+    height: 100vh;
+}
+
+.first-section {
+    background-color: green;
+}
+
+.second-section {
+    background-color: blue;
+}
+
+.third-section {
+    background-color: red;
+}
+
+.fourth-section {
+    background-color: yellow;
+}
