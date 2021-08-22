@@ -1,0 +1,227 @@
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    position: relative;
+    box-sizing: border-box;
+    font-family: Verdana, sans-serif;
+}
+
+body {
+    position: relative;
+    display: block;
+    background-color: white;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+input {
+    outline: none;
+    border: none;
+    font-family: Roboto, sans-serif;
+}
+
+.main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    
+    &__inner {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        font-size: 0px;
+    }
+
+    &__choose-wrap {
+        position: relative;
+        width: inherit;
+        height: inherit;
+    }
+
+    &__start-img, &__choose-img, &__chosed-img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    &__chosed-img {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-200vw);
+        }
+    }
+
+    &__select-item-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0;
+        visibility: hidden;
+        background-color: rgba(0, 0, 0, .65);
+        transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+        
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    
+    &__select-item-img {
+        position: absolute;
+        top: 100%;
+        left: 20%;
+        height: 80%;
+    }
+
+    &__add-item-img {
+        position: absolute;
+        top: 100%;
+        left: 29%;
+        height: 67%;
+    }
+
+    &__result {
+        position: absolute;
+        top: 40px;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 68.8vw;
+        height: calc(100vh - 40px);
+        opacity: 0;
+        visibility: hidden;
+        font-size: 45px;
+        color: white;
+        background-image: url(../images/layer-3.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+        
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__result-dialog-first, &__result-dialog-second {
+        position: absolute;
+        top: 58.5%;
+        left: 17%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+        width: 319px;
+        height: 162px;
+        visibility: hidden;
+        opacity: 0;
+        color: #E9EAEA;
+        background-color: rgba(16, 160, 159, .8);
+        border-radius: 12px;
+        transform: scale(0.3);
+        transition: transform 0.4s ease-in;
+
+        > .main__result-dialog-letter {
+            width: 27.2px;
+
+            &_bigger {
+                width: 34px;
+            }
+
+            &_smaller {
+                width: 20px;
+            }
+
+            &_smallest {
+                width: 14px;
+            }
+        }
+        
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            bottom: -39px;
+            left: -13px;
+            height: 45px;
+            width: 45px;
+            background-color: #10A09F;
+            transform: rotate(100deg);
+            clip-path: polygon(0% 0%,100% 100%, 0% 80%);
+        }
+
+        &.active {
+            visibility: visible;
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    &__result-dialog-second {
+        top: 10%;
+        left: 33.5%;
+
+        &::before {
+            content: '';
+            bottom: -39px;
+            left: 285px;
+            transform: rotate(82deg) scaleY(-1);
+        }
+    }
+
+    &__result-dialog-letter {
+        display: inline-block;
+        opacity: 0;
+    }
+}
+
+.pulse {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #009F9E;
+    border-radius: 50%;
+    opacity: 1;
+    animation: pulse 0.4s ease-in-out;
+    transform: scale(0);
+}
+
+@keyframes pulse {
+    to {
+        transform: scale(2);
+        background-color: #20d4d4;
+        opacity: 0;
+    }
+}
