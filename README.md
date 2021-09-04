@@ -2,6 +2,8 @@
 
 ## Общая информация
 
+Задание - файл `Задания.docx`
+
 Используемые технологии: JavaScript, HTML, SCSS, Webpack, Lodash, anime.js
 
 При работе со сборкой использовался [Node.js](https://nodejs.org/en/) версии [12.16.1](https://nodejs.org/download/release/v12.16.1/)
